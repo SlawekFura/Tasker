@@ -2,6 +2,7 @@
 #define SECTIONSDIALOG_H
 
 #include <QDialog>
+#include "mathematicswindow.h"
 
 namespace Ui {
 class SectionsDialog;
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::SectionsDialog *ui;
+    MathematicsWindow *m_mathematicsWindow;
 };
 
 #endif // SECTIONSDIALOG_H

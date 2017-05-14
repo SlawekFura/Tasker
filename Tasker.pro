@@ -25,10 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainWindow.cpp \
-    sectionsdialog.cpp
+    sectionsdialog.cpp \
+    mathematicswindow.cpp \
+    taskwindow.cpp \
+    qtaskbutton.cpp
 
 HEADERS  += mainWindow.h \
-    sectionsdialog.h
+    sectionsdialog.h \
+    mathematicswindow.h \
+    taskwindow.h \
+    qtaskbutton.h
 
 FORMS    += mainwindow.ui \
-    sectionsdialog.ui
+    sectionsdialog.ui \
+    mathematicswindow.ui \
+    taskwindow.ui

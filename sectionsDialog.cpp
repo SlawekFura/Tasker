@@ -15,5 +15,7 @@ SectionsDialog::~SectionsDialog()
 
 void SectionsDialog::on_ButtonMathematics_clicked()
 {
-
+    m_mathematicsWindow = new MathematicsWindow;
+    hide();
+    m_mathematicsWindow->show();
 }

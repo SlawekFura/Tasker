@@ -2,6 +2,7 @@
 #define TASKWINDOW_H
 
 #include <QDialog>
+#include "ParsingIncludes/parsing.hpp"
 
 namespace Ui {
 class TaskWindow;

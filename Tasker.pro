@@ -28,15 +28,23 @@ SOURCES += main.cpp\
     sectionsdialog.cpp \
     mathematicswindow.cpp \
     taskwindow.cpp \
-    qtaskbutton.cpp
+    qtaskbutton.cpp \
+    ParsingSources/parsing.cpp
 
 HEADERS  += mainWindow.h \
     sectionsdialog.h \
     mathematicswindow.h \
     taskwindow.h \
-    qtaskbutton.h
+    qtaskbutton.h \
+    ParsingIncludes/parsing.hpp \
+    muparser-2.2.5/include/muParser.h
+
+DEPENDPATH += muparser-2.2.5/lib
 
 FORMS    += mainwindow.ui \
     sectionsdialog.ui \
     mathematicswindow.ui \
     taskwindow.ui
+DEPENDPATH += muparser-2.2.5/lib
+
+LIBS += D:\Programowanie\QtWorkspace\Tasker\muparser-2.2.5\lib\libmuparser.a

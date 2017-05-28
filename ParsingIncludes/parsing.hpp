@@ -30,7 +30,7 @@ public:
     TaskData(const char* path);
     string getTaskField(){return taskString;}
     string getAnswerString(){return answerString;}
-    int getAnswer();
+    double getAnswer(){return answerValue;}
     friend ostream& operator<<(ostream&, TaskData&);
 };
 

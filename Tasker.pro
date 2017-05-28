@@ -24,27 +24,37 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainWindow.cpp \
     sectionsdialog.cpp \
     mathematicswindow.cpp \
     taskwindow.cpp \
     qtaskbutton.cpp \
-    ParsingSources/parsing.cpp
+    ParsingSources/parsing.cpp \
+    user.cpp \
+    mainwindow.cpp \
+    startdialog.cpp \
+    logindialog.cpp
 
-HEADERS  += mainWindow.h \
+HEADERS  += \
     sectionsdialog.h \
     mathematicswindow.h \
     taskwindow.h \
     qtaskbutton.h \
     ParsingIncludes/parsing.hpp \
-    muparser-2.2.5/include/muParser.h
+    muparser-2.2.5/include/muParser.h \
+    user.h \
+    mainwindow.h \
+    startdialog.h \
+    logindialog.h
 
 DEPENDPATH += muparser-2.2.5/lib
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     sectionsdialog.ui \
     mathematicswindow.ui \
-    taskwindow.ui
-DEPENDPATH += muparser-2.2.5/lib
+    taskwindow.ui \
+    mainwindow.ui \
+    startdialog.ui \
+    logindialog.ui
+DEPENDPATH += ../Tasker/muparser-2.2.5/lib
 
-LIBS += D:\Programowanie\QtWorkspace\Tasker\muparser-2.2.5\lib\libmuparser.a
+LIBS += D:/Programowanie/QtWorkspace/Tasker/muparser-2.2.5/lib/libmuparser.a

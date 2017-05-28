@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mathematicswindow.h"
+#include <memory>
 
 namespace Ui {
 class SectionsDialog;
@@ -21,7 +22,7 @@ private slots:
 
 private:
     Ui::SectionsDialog *ui;
-    MathematicsWindow *m_mathematicsWindow;
+    std::shared_ptr<MathematicsWindow> m_mathematicsWindow;
 };
 
 #endif // SECTIONSDIALOG_H

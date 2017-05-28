@@ -2,7 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "sectionsdialog.h"
+#include <QShowEvent>
+#include <memory>
+#include "startDialog.h"
+#include "logindialog.h"
+#include "user.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -17,12 +22,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_ButtonStart_clicked();
-    void on_ButtonProgress_clicked();
-
+    void on_OKButton_clicked();
 private:
     Ui::MainWindow *ui;
-    SectionsDialog *m_sectionsDialog;
+    std::shared_ptr<StartDialog> m_startWindow;
+    std::shared_ptr<LoginDialog> m_loginDialog;
+
 };
 
 #endif // MAINWINDOW_H

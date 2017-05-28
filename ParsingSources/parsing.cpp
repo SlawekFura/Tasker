@@ -63,6 +63,7 @@ void TaskData::getVariablesNumberAndRange(string& line)
 
 string& TaskData::generateTaskStringAndVariables(string& line)
 {
+   std::rand();
    for(int i=0; i<variablesNumber; i++)
    {
        int randomVal = variablesRange[i][0] + (variablesRange[i][1]-variablesRange[i][0]) * std::rand()/RAND_MAX;

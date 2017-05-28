@@ -37,9 +37,7 @@ void MathematicsWindow::taskButtonsCreator()
 
 void MathematicsWindow::onPushbuttonClicked()
 {
-    //std::cout<<"onPushButton";
     QTaskButton* button = static_cast<QTaskButton*>(QObject::sender());
-    //std::cout<<button->text().toStdString();
 
     m_taskWindow = new TaskWindow(button->text());
     hide();

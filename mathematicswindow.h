@@ -10,6 +10,7 @@
 #include "qtaskbutton.h"
 #include "taskwindow.h"
 
+class TaskWindow;
 
 namespace Ui {
 class MathematicsWindow;

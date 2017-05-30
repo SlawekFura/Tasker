@@ -15,16 +15,19 @@ private:
     QString m_surname;
     std::map<QString, bool> m_tasksStatus;
     bool m_userNameSet;
-    void setTaskStatus(QString taskName);
-    void loadUserData(QString &path);
+    void loadUserData();
+    void getTaskStatusFromTextLine(QString &line, std::map<QString, bool> &taskMap);
 public:
     User();
-    ~User(){}
+    ~User();
     QString getUserName()    {return m_name;}
     QString getUserSurname() {return m_surname;}
     bool isUserNameSet()     {return m_userNameSet;}
     void setUserName(QString p_name, QString p_surname);
     bool getTaskStatus(QString);
+    bool isElemInMap(QString taskName);
+    void setTaskStatus(QString taskName, bool taskStatus);
+
 
 };
 

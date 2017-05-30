@@ -17,12 +17,11 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::on_pushButton_clicked()
 {
-    if(!user.isUserNameSet())
+    if(!user.isUserNameSet() && !ui->NameLineEdit->text().isEmpty() && !ui->SurnameLineEdit->text().isEmpty())
     {
     user.setUserName(ui->NameLineEdit->text(), ui->SurnameLineEdit->text());
     m_startDialog = std::shared_ptr<StartDialog>(new StartDialog);
     m_startDialog->show();
     this->hide();
     }
-
 }

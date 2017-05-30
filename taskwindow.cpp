@@ -8,12 +8,14 @@
 #define EPSILON 0.005
 
 
-TaskWindow::TaskWindow(QString filename, QWidget *parent):
+extern User user;
+
+TaskWindow::TaskWindow(QString filename, MathematicsWindow * mathematicsWindow, QWidget *parent):
     QDialog(parent),
     ui(new Ui::TaskWindow)
 {
     taskData = new TaskData(((string)"../Tasker/physics/" + filename.toStdString()).c_str());
-
+    m_mathematicsWindow = std::make_shared<MathematicsWindow>(mathematicsWindow);
     ui->setupUi(this);
     ui->taskLabel->setWordWrap(true);
     fillTaskWindow(filename);
@@ -49,6 +51,7 @@ void TaskWindow::on_taskOkButton_clicked()
     }
     if(fabs(userAnswer - taskData->getAnswer()) < EPSILON)
     {
+        user.setTaskStatus(ui->titleLabel->text(), true);
         QMessageBox msgBox;
         msgBox.setText("GOOD!");
         msgBox.setInformativeText(userAnswerString);
@@ -57,10 +60,17 @@ void TaskWindow::on_taskOkButton_clicked()
     }
     else
     {
+        user.setTaskStatus(ui->titleLabel->text(), false);
         QMessageBox msgBox;
         msgBox.setText("Wrong Answer!");
         msgBox.setInformativeText(userAnswerString);
         msgBox.setStandardButtons(QMessageBox::Ok);
         msgBox.exec();
     }
+}
+
+void TaskWindow::on_taskBackButton_clicked()
+{
+    hide();
+    m_mathematicsWindow->show();
 }

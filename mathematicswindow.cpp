@@ -39,7 +39,7 @@ void MathematicsWindow::onPushbuttonClicked()
 {
     QTaskButton* button = static_cast<QTaskButton*>(QObject::sender());
 
-    m_taskWindow = new TaskWindow(button->text());
+    m_taskWindow = new TaskWindow(button->text(), this);
     hide();
     m_taskWindow->show();
 }

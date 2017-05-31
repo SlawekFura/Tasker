@@ -25,7 +25,7 @@ void User::setUserName(QString p_name, QString p_surname)
     if(!filePath.exists())
     {
         QFile userdata(path);
-        userdata.open(QIODevice::ReadWrite);
+        userdata.open(QIODevice::ReadWrite | QIODevice::Text);
         {
             QTextStream stream(&userdata);
             stream << p_name << endl << p_surname << endl;
@@ -82,7 +82,7 @@ User::~User()
     for(int i=0; !in.atEnd(); i++)
     {
         QString line = in.readLine();
-        if(i>=2)
+        if(i>=2 && !line.isEmpty())
         {
             getTaskStatusFromTextLine(line, l_taskMap);
         }
@@ -101,4 +101,7 @@ bool User::isElemInMap(QString taskName)
     return m_tasksStatus.find(taskName) != m_tasksStatus.end();
 }
 
-
+bool User::getTaskStatus(QString taskString)
+{
+        return m_tasksStatus[taskString];
+}

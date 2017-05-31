@@ -58,3 +58,7 @@ FORMS    += \
 DEPENDPATH += ../Tasker/muparser-2.2.5/lib
 
 LIBS += D:/Programowanie/QtWorkspace/Tasker/muparser-2.2.5/lib/libmuparser.a
+
+RESOURCES +=
+
+DISTFILES +=

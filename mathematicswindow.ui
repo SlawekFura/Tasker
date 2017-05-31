@@ -40,6 +40,12 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
    <property name="widgetResizable">
     <bool>true</bool>
    </property>
@@ -48,8 +54,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>239</width>
-      <height>389</height>
+      <width>241</width>
+      <height>391</height>
      </rect>
     </property>
    </widget>

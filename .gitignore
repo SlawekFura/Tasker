@@ -1,3 +1,6 @@
 muparser-2.2.5/
 userdata/
 gitignore
+Resources/Fail.png
+Resources/Passed.png
+Resources/resources.qrc

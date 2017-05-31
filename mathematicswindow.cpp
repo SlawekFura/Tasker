@@ -1,5 +1,9 @@
 #include "mathematicswindow.h"
 #include "ui_mathematicswindow.h"
+#include "user.h"
+
+
+extern User user;
 
 MathematicsWindow::MathematicsWindow(QWidget *parent) :
     QDialog(parent),
@@ -27,6 +31,14 @@ void MathematicsWindow::taskButtonsCreator()
     for (int i=0; i<listTasksNames.size(); i++)
     {
         QTaskButton *button = new QTaskButton(listTasksNames[i].fileName(), this, this);
+        if(user.isElemInMap(listTasksNames[i].fileName()))
+        {
+            if(user.getTaskStatus(listTasksNames[i].fileName()))
+                button->setStyleSheet("background-color: green");
+            else
+                button->setStyleSheet("background-color: red");
+        }
+
         button->setMinimumSize(200,100);
         button->setMaximumSize(200,100);
         m_buttonVector.push_back(button);

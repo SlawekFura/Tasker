@@ -9,13 +9,14 @@
 
 
 extern User user;
+class MathematicsWindow;
 
 TaskWindow::TaskWindow(QString filename, MathematicsWindow * mathematicsWindow, QWidget *parent):
     QDialog(parent),
     ui(new Ui::TaskWindow)
 {
     taskData = new TaskData(((string)"../Tasker/physics/" + filename.toStdString()).c_str());
-    m_mathematicsWindow = std::make_shared<MathematicsWindow>(mathematicsWindow);
+    m_mathematicsWindow = std::shared_ptr<MathematicsWindow>(mathematicsWindow);
     ui->setupUi(this);
     ui->taskLabel->setWordWrap(true);
     fillTaskWindow(filename);
@@ -35,6 +36,28 @@ void TaskWindow::fillTaskWindow(QString &filename)
     ui->answerFormLabel->setText(QString::fromStdString(taskData->getAnswerString()));
 }
 
+void TaskWindow::goodAnswerHandling(QString userAnswerString)
+{
+    user.setTaskStatus(ui->titleLabel->text(), true);
+    m_mathematicsWindow->setTaskButtonColor(ui->titleLabel->text(), true);
+    QMessageBox msgBox;
+    msgBox.setText("GOOD!");
+    msgBox.setInformativeText(userAnswerString);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.exec();    
+}
+
+void TaskWindow::wrongAnswerHandling(QString userAnswerString)
+{
+    user.setTaskStatus(ui->titleLabel->text(), false);
+    m_mathematicsWindow->setTaskButtonColor(ui->titleLabel->text(), false);
+    QMessageBox msgBox;
+    msgBox.setText("Wrong Answer!");
+    msgBox.setInformativeText(userAnswerString);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.exec();    
+}
+
 void TaskWindow::on_taskOkButton_clicked()
 {
     QString userAnswerString = ui->lineEdit->text();
@@ -51,21 +74,11 @@ void TaskWindow::on_taskOkButton_clicked()
     }
     if(fabs(userAnswer - taskData->getAnswer()) < EPSILON)
     {
-        user.setTaskStatus(ui->titleLabel->text(), true);
-        QMessageBox msgBox;
-        msgBox.setText("GOOD!");
-        msgBox.setInformativeText(userAnswerString);
-        msgBox.setStandardButtons(QMessageBox::Ok);
-        msgBox.exec();
+        goodAnswerHandling(userAnswerString);
     }
     else
     {
-        user.setTaskStatus(ui->titleLabel->text(), false);
-        QMessageBox msgBox;
-        msgBox.setText("Wrong Answer!");
-        msgBox.setInformativeText(userAnswerString);
-        msgBox.setStandardButtons(QMessageBox::Ok);
-        msgBox.exec();
+        wrongAnswerHandling(userAnswerString);
     }
 }
 

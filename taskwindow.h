@@ -21,6 +21,10 @@ public:
     explicit TaskWindow(QString filename, MathematicsWindow *mathematicsWindow, QWidget *parent = 0);
     ~TaskWindow();
 
+    void goodAnswerHandling(QString userAnswerString);
+    
+    void wrongAnswerHandling(QString userAnswerString);
+    
 private slots:
     void on_taskOkButton_clicked();
 

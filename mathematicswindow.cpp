@@ -1,14 +1,16 @@
 #include "mathematicswindow.h"
 #include "ui_mathematicswindow.h"
 #include "user.h"
+#include <algorithm>
 
 
 extern User user;
 
-MathematicsWindow::MathematicsWindow(QWidget *parent) :
+MathematicsWindow::MathematicsWindow(SectionsDialog *sectionsDialog, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MathematicsWindow)
 {
+    m_sectionsDialog = std::shared_ptr<SectionsDialog>(sectionsDialog);
     resize(400,300);
     m_mathematicsWindowLayout = new QVBoxLayout(this);
     taskButtonsCreator();
@@ -56,3 +58,34 @@ void MathematicsWindow::onPushbuttonClicked()
     m_taskWindow->show();
 }
 
+void MathematicsWindow::setTaskButtonColor(QString taskName, bool state)
+{
+    auto iter = m_buttonVector.begin();
+    for(;iter != m_buttonVector.end(); iter++)
+    {
+        if((*iter)->text() == taskName)
+            break;
+    }
+    //auto iter = std::find(m_buttonVector.begin(), m_buttonVector.end(), new QPushButton(taskName));
+    if (iter == m_buttonVector.end())
+        return;
+    if((*iter)->styleSheet() == "background-color: green")
+    {
+        return;
+    }
+    else
+    {
+        if(state)
+            (*iter)->setStyleSheet("background-color: green");
+        else
+            (*iter)->setStyleSheet("background-color: red");
+    }
+}
+
+
+
+void MathematicsWindow::on_BackButton_clicked()
+{
+    hide();
+    m_sectionsDialog->show();
+}

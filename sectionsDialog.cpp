@@ -17,7 +17,8 @@ SectionsDialog::~SectionsDialog()
 
 void SectionsDialog::on_ButtonMathematics_clicked()
 {
-    m_mathematicsWindow = std::shared_ptr<MathematicsWindow>(new MathematicsWindow);
+    if(!m_mathematicsWindow)
+        m_mathematicsWindow = std::shared_ptr<MathematicsWindow>(new MathematicsWindow(this));
     hide();
     m_mathematicsWindow->show();
 }

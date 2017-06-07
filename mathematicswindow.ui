@@ -28,10 +28,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>241</width>
-     <height>391</height>
+     <x>50</x>
+     <y>20</y>
+     <width>291</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -54,11 +54,24 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>241</width>
-      <height>391</height>
+      <width>291</width>
+      <height>401</height>
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="BackButton">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>452</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
   </widget>
  </widget>
  <resources/>

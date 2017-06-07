@@ -5,6 +5,8 @@
 #include "mathematicswindow.h"
 #include <memory>
 
+class MathematicsWindow;
+
 namespace Ui {
 class SectionsDialog;
 }

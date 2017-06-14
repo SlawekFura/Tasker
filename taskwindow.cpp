@@ -15,7 +15,7 @@ TaskWindow::TaskWindow(QString filename, MathematicsWindow * mathematicsWindow, 
     QDialog(parent),
     ui(new Ui::TaskWindow)
 {
-    taskData = new TaskData(((string)"../Tasker/physics/" + filename.toStdString()).c_str());
+    taskData = new TaskData(((string)"../Tasker/mathematics/" + filename.toStdString()).c_str());
     m_mathematicsWindow = std::shared_ptr<MathematicsWindow>(mathematicsWindow);
     ui->setupUi(this);
     ui->taskLabel->setWordWrap(true);

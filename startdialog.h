@@ -6,6 +6,8 @@
 #include "sectionsdialog.h"
 #include <memory>
 
+class SectionsDialog;
+
 namespace Ui {
 class StartDialog;
 }

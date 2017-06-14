@@ -26,7 +26,7 @@ MathematicsWindow::~MathematicsWindow()
 
 void MathematicsWindow::taskButtonsCreator()
 {
-    QDir filePath("../Tasker/physics");
+    QDir filePath("../Tasker/mathematics");
     filePath.setFilter(QDir::Filters(QDir::AllEntries | QDir::NoDotAndDotDot));
     QFileInfoList listTasksNames = filePath.entryInfoList();
 

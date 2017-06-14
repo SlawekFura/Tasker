@@ -15,7 +15,8 @@ StartDialog::~StartDialog()
 
 void StartDialog::on_ButtonStart_clicked()
 {
-    m_sectionsDialog = std::shared_ptr<SectionsDialog>(new SectionsDialog);
+    if(!m_sectionsDialog)
+        m_sectionsDialog = std::shared_ptr<SectionsDialog>(new SectionsDialog(this));
     hide();
     m_sectionsDialog->show();
 }

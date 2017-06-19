@@ -25,8 +25,8 @@ private slots:
     void on_OKButton_clicked();
 private:
     Ui::MainWindow *ui;
-    std::shared_ptr<StartDialog> m_startWindow;
-    std::shared_ptr<LoginDialog> m_loginDialog;
+    StartDialog* m_startWindow;
+    LoginDialog* m_loginDialog;
 
 };
 

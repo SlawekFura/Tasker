@@ -28,8 +28,8 @@ private slots:
 
 private:
     Ui::SectionsDialog *ui;
-    std::shared_ptr<MathematicsWindow> m_mathematicsWindow;
-    std::shared_ptr<StartDialog> m_startDialog;
+    MathematicsWindow* m_mathematicsWindow;
+    StartDialog* m_startDialog;
 };
 
 #endif // SECTIONSDIALOG_H

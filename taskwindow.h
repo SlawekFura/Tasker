@@ -33,7 +33,7 @@ private slots:
 private:
     Ui::TaskWindow *ui;
     TaskData *taskData;
-    std::shared_ptr<MathematicsWindow> m_mathematicsWindow;
+    MathematicsWindow* m_mathematicsWindow;
     void fillTaskWindow(QString &filename);
 };
 

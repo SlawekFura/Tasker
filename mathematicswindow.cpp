@@ -10,7 +10,8 @@ MathematicsWindow::MathematicsWindow(SectionsDialog *sectionsDialog, QWidget *pa
     QDialog(parent),
     ui(new Ui::MathematicsWindow)
 {
-    m_sectionsDialog = std::shared_ptr<SectionsDialog>(sectionsDialog);
+    m_taskWindow = NULL;
+    m_sectionsDialog = sectionsDialog;
     resize(400,300);
     m_mathematicsWindowLayout = new QVBoxLayout(this);
     taskButtonsCreator();
@@ -21,6 +22,8 @@ MathematicsWindow::MathematicsWindow(SectionsDialog *sectionsDialog, QWidget *pa
 
 MathematicsWindow::~MathematicsWindow()
 {
+    if(m_taskWindow != NULL)
+        delete m_taskWindow;
     delete ui;
 }
 
@@ -66,7 +69,6 @@ void MathematicsWindow::setTaskButtonColor(QString taskName, bool state)
         if((*iter)->text() == taskName)
             break;
     }
-    //auto iter = std::find(m_buttonVector.begin(), m_buttonVector.end(), new QPushButton(taskName));
     if (iter == m_buttonVector.end())
         return;
     if((*iter)->styleSheet() == "background-color: green")

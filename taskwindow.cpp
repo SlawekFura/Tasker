@@ -16,7 +16,7 @@ TaskWindow::TaskWindow(QString filename, MathematicsWindow * mathematicsWindow, 
     ui(new Ui::TaskWindow)
 {
     taskData = new TaskData(((string)"../Tasker/mathematics/" + filename.toStdString()).c_str());
-    m_mathematicsWindow = std::shared_ptr<MathematicsWindow>(mathematicsWindow);
+    m_mathematicsWindow = mathematicsWindow;
     ui->setupUi(this);
     ui->taskLabel->setWordWrap(true);
     fillTaskWindow(filename);

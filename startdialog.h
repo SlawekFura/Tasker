@@ -25,7 +25,7 @@ private slots:
 private:
     Ui::StartDialog *ui;
     QMainWindow *m_mainWindow;
-    std::shared_ptr<SectionsDialog> m_sectionsDialog;
+    SectionsDialog* m_sectionsDialog;
 };
 
 #endif // STARTDIALOG_H

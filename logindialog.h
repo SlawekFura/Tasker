@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::LoginDialog *ui;
-    std::shared_ptr<StartDialog> m_startDialog;
+    StartDialog* m_startDialog;
 };
 
 #endif // LOGINDIALOG_H

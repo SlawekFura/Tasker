@@ -7,19 +7,22 @@ SectionsDialog::SectionsDialog(StartDialog * startDialog, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SectionsDialog)
 {
-    m_startDialog = std::shared_ptr<StartDialog>(startDialog);
+    m_mathematicsWindow = NULL;
+    m_startDialog = startDialog;
     ui->setupUi(this);
 }
 
 SectionsDialog::~SectionsDialog()
 {
+    if(m_mathematicsWindow != NULL)
+        delete m_mathematicsWindow;
     delete ui;
 }
 
 void SectionsDialog::on_ButtonMathematics_clicked()
 {
     if(!m_mathematicsWindow)
-        m_mathematicsWindow = std::shared_ptr<MathematicsWindow>(new MathematicsWindow(this));
+        m_mathematicsWindow = new MathematicsWindow(this);
     hide();
     m_mathematicsWindow->show();
 }

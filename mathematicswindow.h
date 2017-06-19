@@ -37,7 +37,7 @@ private slots:
 
 private:
     Ui::MathematicsWindow *ui;
-    std::shared_ptr<SectionsDialog> m_sectionsDialog;
+    SectionsDialog *m_sectionsDialog;
     TaskWindow *m_taskWindow;
     QVBoxLayout *m_mathematicsWindowLayout;
     void taskButtonsCreator();
